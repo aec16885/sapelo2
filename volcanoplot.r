@@ -3,8 +3,8 @@ suppressMessages({
 })
 
 #set input and output dirs
-datapath <- "/home/aec16885/nsd1/5dpf_RNAseq/kallisto"
-resultdir <- "/home/aec16885/nsd1/5dpf_RNAseq/sleuth"
+datapath <- "/scratch/aec16885/nsd1_RNAseq/bowtie/kallisto"
+resultdir <- "/scratch/aec16885/nsd1_RNAseq/bowtie/sleuth"
 setwd(resultdir)
 
 #create a sample to condition metadata description
@@ -29,7 +29,7 @@ sleuth_table <- sleuth_results(sleuth_object, 'reduced:full', 'lrt', show_all = 
 sleuth_significant <- dplyr::filter(sleuth_table, qval <= 0.05)
 
 #make volcano plot
-plot_volcano(sleuth_object, test, test_type="wt", which_model = "full", sig_level = 0.05, point_alpha = 0.2, sig_color = "red", highlight= NULL)
+plot_volcano(sleuth_object, "1", test_type="wt", which_model = "full", sig_level = 0.05, point_alpha = 0.2, sig_color = "red", highlight= NULL)
 
 #make heat map
-plot_sample_heatmap(sleuth_object, use_filtered= TRUE, color_high='red', color_low='blue', x_axis_angle = 90, 
+plot_sample_heatmap(sleuth_object, use_filtered= TRUE, color_high='red', color_low='blue', x_axis_angle = 90,
