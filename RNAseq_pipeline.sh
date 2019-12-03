@@ -24,4 +24,4 @@ kallisto quant -i transcripts.idx -o kallisto/ab_2.output -b 100 wt2_R1.trim.gz 
 kallisto quant -i transcripts.idx -o kallisto/ab_3.output -b 100 wt3_R1.trim.gz wt3_R2.trim.gz
 
 module load R/3.4.4-foss-2016b-X11-20160819-GACRC
-R --no-save < /home/aec16885/nsd1/5dpf_RNAseq/volcanoplot.r
+R --no-save < /scratch/aec16885/nsd1_RNAseq/bowtie/volcanoplot.r
