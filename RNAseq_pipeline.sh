@@ -1,4 +1,4 @@
-A#PBS -S /bin/bash
+#PBS -S /bin/bash
 #PBS -q batch
 #PBS -N kallisto
 #PBS -l nodes=1:ppn=48:AMD
