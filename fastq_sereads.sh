@@ -1,9 +1,9 @@
 #PBS -S /bin/bash
 #PBS -q batch
-#PBS -N testjob
+#PBS -N fastp
 #PBS -l nodes=1:ppn=48:AMD
-#PBS -l walltime=72:00:00
-#PBS -l mem=10gb
+#PBS -l walltime=12:00:00
+#PBS -l mem=8gb
 #PBS -M audrey.calvird@uga.edu
 #PBS -m abe
 
