@@ -8,11 +8,9 @@
 #PBS -m abe
 
 cd $PBS_O_WORKDIR
-
-module load FastQC/0.11.8-Java-1.8.0_144
-
 cd /scratch/aec16885/morc3/
 
+module load FastQC/0.11.8-Java-1.8.0_144
 fastp -i rawfiles/s1.fastq.gz -o trimmedfiles/s1_trimmed.fq.gz --failed_out s1_failed.fq.gz -h s1
 fastp -i rawfiles/s2.fastq.gz -o trimmedfiles/s2_trimmed.fq.gz --failed_out s2_failed.fq.gz -h s2
 fastp -i rawfiles/s3.fastq.gz -o trimmedfiles/s3_trimmed.fq.gz --failed_out s3_failed.fq.gz -h s3
