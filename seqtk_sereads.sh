@@ -9,7 +9,7 @@
 
 cd $PBS_O_WORKDIR
 
-cd /scratch/aec16885/nsd1_RNAseq/bowtie
+cd /scratch/aec16885/morc3
 
 module load seqtk/1.2-foss-2016b
 
