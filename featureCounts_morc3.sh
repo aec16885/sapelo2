@@ -12,46 +12,46 @@ cd /scratch/aec16885/morc3
 
 module load Subread/1.6.2
 
-featureCounts s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam,
+featureCounts --largestOverlap -a GCA_000002035.4_GRCz11_genomic.gtf.gz -o morc3_allignment_featurecounts s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam 
 
 #annotation
-annot.ext=GCA_000002035.4_GRCz11_genomic.gtf,
-isGTFAnnotationFile=TRUE,
-GTF.featureType="exon",
-GTF.attrType="gene_ID",
-chrAliases=NULL,
+#annot.ext=GCA_000002035.4_GRCz11_genomic.gtf,
+#isGTFAnnotationFile=TRUE,
+#GTF.featureType="exon",
+#GTF.attrType="gene_ID",
+#chrAliases=NULL,
 
 #level of summerization
-useMetaFeatures=TRUE,
+#useMetaFeatures=TRUE,
 
 #overlap between reads and features
-allowMultiOverlap=FALSE,
-minOverlap=1,
-largestOverlap=TRUE,
-readextension5=0,
-readextension3=0,
-read2pos=NULL,
+#allowMultiOverlap=FALSE,
+#minOverlap=1,
+#largestOverlap=TRUE,
+#readextension5=0,
+#readextension3=0,
+#read2pos=NULL,
 
 #multi-mapping reads
-countMultiMappingReads=FALSE,
-fraction=FALSE,
+#countMultiMappingReads=FALSE,
+#fraction=FALSE,
 
 #read filtering
-minMQS=0,
-splitOnly=FALSE,
-nonSplitOnly=FALSE,
-primaryOnly=FALSE,
-ignoreDup=FALSE,
+#minMQS=0,
+#splitOnly=FALSE,
+#nonSplitOnly=FALSE,
+#primaryOnly=FALSE,
+#ignoreDup=FALSE,
 
 #strandedness
-strandSpecific=0,
+#strandSpecific=0,
 
 #exon-exon junctions
-juncCounts=TRUE
-genome=danRer11.fa
+#juncCounts=TRUE,
+#genome=danRer11.fa,
 
 #specific for paired end reads (morc3 data is not paired end, for furutre use)
-isPairedEnd=FALSE,
+#isPairedEnd=FALSE,
 #requireBothEndsMapped=FALSE,
 #checkFragLength=FALSE,
 #minFragLength=50,
@@ -60,7 +60,6 @@ isPairedEnd=FALSE,
 #autosort=TRUE,
 
 # miscellaneous
-nthreads=1,
-maxMOp=10,
-reportReads=TRUE,
-> morc3_output_${PBS_JOBID}.log
+#nthreads=1,
+#maxMOp=10,
+#reportReads=TRUE,
