@@ -12,7 +12,7 @@ cd /scratch/aec16885/morc3
 
 module load Subread/1.6.2
 
-featureCounts -F 'gff' -a GCA_000002035.4_GRCz11_genomic.gff -o morc3_allignment_featurecounts s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam
+featureCounts -F 'GFF' -a GCA_000002035.4_GRCz11_genomic.gff -o morc3_allignment_featurecounts s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam
 
 #annotation
 #annot.ext=GCA_000002035.4_GRCz11_genomic.gtf,
