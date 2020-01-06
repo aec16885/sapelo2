@@ -15,9 +15,9 @@ module load HISAT2/2.1.0-foss-2016b
 hisat2-build rawfiles/GCF_000002035.6_GRCz11_genomic.fna GRCz11_index
 
 #align trimmed reads
-hisat2 -q -x GRCz11_index -U trimmedfiles/s1_trimmed.fq.gz -S s1_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s2_trimmed.fq.gz -S s2_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s3_trimmed.fq.gz -S s3_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s4_trimmed.fq.gz -S s4_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s5_trimmed.fq.gz -S s5_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s6_trimmed.fq.gz -S s6_alignment.sam
+hisat2 -q -x GRCz11_index -U trimmedfiles/s1_t.fq -S s1_alignment.sam
+hisat2 -q -x GRCz11_index -U trimmedfiles/s2_t.fq -S s2_alignment.sam
+hisat2 -q -x GRCz11_index -U trimmedfiles/s3_t.fq -S s3_alignment.sam
+hisat2 -q -x GRCz11_index -U trimmedfiles/s4_t.fq -S s4_alignment.sam
+hisat2 -q -x GRCz11_index -U trimmedfiles/s5_t.fq -S s5_alignment.sam
+hisat2 -q -x GRCz11_index -U trimmedfiles/s6_t.fq -S s6_alignment.sam
