@@ -12,7 +12,7 @@ cd /scratch/aec16885/morc3
 
 module load Subread/1.6.2
 
-featureCounts( s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam,
+featureCounts s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam,
 
 #annotation
 annot.ext=GCA_000002035.4_GRCz11_genomic.gtf,
@@ -62,5 +62,5 @@ isPairedEnd=FALSE,
 # miscellaneous
 nthreads=1,
 maxMOp=10,
-reportReads=TRUE)
+reportReads=TRUE,
 > morc3_output_${PBS_JOBID}.log
