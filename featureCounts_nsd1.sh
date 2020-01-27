@@ -12,4 +12,4 @@ cd /scratch/aec16885/nsd1
 
 module load Subread/1.6.2
 
-featureCounts -p -B -C -a GCF_000002035.6_GRCz11_genomic.gtf.gz -o nsd1_allignment_featurecounts.txt s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam
+featureCounts -p -B -C -a GCF_000002035.6_GRCz11_genomic.gtf.gz -o nsd1_allignment_featurecounts.txt n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam
