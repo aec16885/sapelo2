@@ -11,7 +11,7 @@ cd $PBS_O_WORKDIR
 cd /scratch/aec16885/nsd1
 
 module load HISAT2/2.1.0-foss-2016b
-build a histat2 index
+#build a histat2 index
 hisat2-build ../sat1_mzt/GRCz11_sat1.fa GRCz11_index_sat1
 
 #align trimmed reads
