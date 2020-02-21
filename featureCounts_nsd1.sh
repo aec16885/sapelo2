@@ -1,7 +1,7 @@
 #PBS -S /bin/bash
 #PBS -q batch
 #PBS -N featureCounts_nsd1
-#PBS -l nodes=1:ppn=48
+#PBS -l nodes=1:ppn=12
 #PBS -l walltime=72:00:00
 #PBS -l mem=10gb
 #PBS -M audrey.calvird@uga.edu
