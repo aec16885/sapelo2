@@ -2,7 +2,7 @@
 #PBS -q batch
 #PBS -N samtobam
 #PBS -l nodes=1:ppn=12
-#PBS -l walltime=2:00:00
+#PBS -l walltime=4:00:00
 #PBS -l mem=8gb
 #PBS -M audrey.calvird@uga.edu
 #PBS -m abe
@@ -26,9 +26,9 @@ module load SAMtools/1.6-foss-2016b
 #samtools view -S -b wt2_alignment.sam > ab_2.bam
 #samtools view -S -b wt3_alignment.sam > ab_3.bam
 
-samtools sort n1.bam -o n1sorted.bam
-samtools sort n2.bam -o n2sorted.bam
-samtools sort n3.bam -o n3sorted.bam
+#samtools sort n1.bam -o n1sorted.bam
+#samtools sort n2.bam -o n2sorted.bam
+#samtools sort n3.bam -o n3sorted.bam
 samtools sort ab_1.bam -o ab1sorted.bam
 samtools sort ab_2.bam -o ab1sorted.bam
 samtools sort ab_3.bam -o ab1sorted.bam
@@ -38,4 +38,4 @@ samtools index n2sorted.bam
 samtools index n3sorted.bam
 samtools index ab1sorted.bam
 samtools index ab2sorted.bam
-samtools index ab3sorted.bam 
+samtools index ab3sorted.bam
