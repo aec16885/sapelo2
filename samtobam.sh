@@ -30,8 +30,8 @@ module load SAMtools/1.6-foss-2016b
 #samtools sort n2.bam -o n2sorted.bam
 #samtools sort n3.bam -o n3sorted.bam
 samtools sort ab_1.bam -o ab1sorted.bam
-samtools sort ab_2.bam -o ab1sorted.bam
-samtools sort ab_3.bam -o ab1sorted.bam
+samtools sort ab_2.bam -o ab2sorted.bam
+samtools sort ab_3.bam -o ab3sorted.bam
 
 samtools index n1sorted.bam
 samtools index n2sorted.bam
