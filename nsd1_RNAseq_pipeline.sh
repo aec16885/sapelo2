@@ -13,23 +13,23 @@ cd /scratch/aec16885/nsd1/traditional_alignment
 #trim reads
 module load Trim_Galore/0.6.5-GCCcore-8.2.0-Java-11
 
-trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R2_001.fastq.gz
+trim_galore -q 20 --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R2_001.fastq.gz
 rename _val_1.fq.gz n1_r1.fq.gz *
 rename _val_2.fq.gz n1_r2.fq.gz *
-trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R2_001.fastq.gz
+trim_galore -q 20 --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R2_001.fastq.gz
 rename _val_1.fq.gz n2_r1.fq.gz *
 rename _val_2.fq.gz n2_r2.fq.gz *
-trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R2_001.fastq.gz
+trim_galore -q 20 --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R2_001.fastq.gz
 rename _val_1.fq.gz n3_r1.fq.gz *
 rename _val_2.fq.gz n3_r2.fq.gz *
 
-trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R2_001.fastq.gz
+trim_galore -q 20 --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R2_001.fastq.gz
 rename _val_1.fq.gz wt1_r1.fq.gz *
 rename _val_2.fq.gz wt1_r2.fq.gz *
-trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz
+trim_galore -q 20 --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz
 rename _val_1.fq.gz wt2_r1.fq.gz *
 rename _val_2.fq.gz wt2_r2.fq.gz *
-trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz
+trim_galore -q 20 --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz
 rename _val_1.fq.gz wt3_r1.fq.gz *
 rename _val_2.fq.gz wt3_r2.fq.gz *
 
