@@ -1,6 +1,6 @@
 #PBS -S /bin/bash
 #PBS -q batch
-#PBS -N hisat2_nsd1
+#PBS -N nsd1_rnaseq
 #PBS -l nodes=1:ppn=12:AMD
 #PBS -l walltime=72:00:00
 #PBS -l mem=10gb
@@ -11,23 +11,37 @@ cd $PBS_O_WORKDIR
 cd /scratch/aec16885/nsd1/traditional_alignment
 
 #trim reads
-module load FastQC/0.11.8-Java-1.8.0_144
+module load Trim_Galore/0.6.5-GCCcore-8.2.0-Java-11
 
-fastqc -o fastqc_analysis -i /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R1_001.fastq.gz -I /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R2_001.fastq.gz -o n1_r1.fq.gz -O n1_r2.fq.gz
-fastqc -o fastqc_analysis -i /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R1_001.fastq.gz -I /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R2_001.fastq.gz -o n2_r1.fq.gz -O n2_r2.fq.gz
-fastqc -o fastqc_analysis -i /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R1_001.fastq.gz -I /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R2_001.fastq.gz -o n3_r1.fq.gz -O n3_r2.fq.gz
+trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-1_IGO_07846_22_S31_R2_001.fastq.gz
+rename _val_1.fq.gz n1_r1.fq.gz *
+rename _val_2.fq.gz n1_r2.fq.gz *
+trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-2_IGO_07846_22_S31_R2_001.fastq.gz
+rename _val_1.fq.gz n2_r1.fq.gz *
+rename _val_2.fq.gz n2_r2.fq.gz *
+trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Nsd1a_bdouble-3_IGO_07846_22_S31_R2_001.fastq.gz
+rename _val_1.fq.gz n3_r1.fq.gz *
+rename _val_2.fq.gz n3_r2.fq.gz *
 
-fastqc -o fastqc_analysis -i /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R1_001.fastq.gz -I /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R2_001.fastq.gz -o wt1_r1.fq.gz -O wt1_r2.fq.gz
-fastqc -o fastqc_analysis -i /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz -I /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz -o wt2_r1.fq.gz -O wt2_r2.fq.gz
-fastqc -o fastqc_analysis -i /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz -I /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz -o wt3_r1.fq.gz -O wt3_r2.fq.gz
+trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5dpf-1_IGO_07846_19_S28_R2_001.fastq.gz
+rename _val_1.fq.gz wt1_r1.fq.gz *
+rename _val_2.fq.gz wt1_r2.fq.gz *
+trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-2_IGO_07846_20_S29_R1_001.fastq.gz
+rename _val_1.fq.gz wt2_r1.fq.gz *
+rename _val_2.fq.gz wt2_r2.fq.gz *
+trim_galore -q --paired /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz /home/aec16885/nsd1/5dpf_RNAseq/Wt5ddf-3_IGO_07846_20_S29_R1_001.fastq.gz
+rename _val_1.fq.gz wt3_r1.fq.gz *
+rename _val_2.fq.gz wt3_r2.fq.gz *
+
+scp *.fq.gz fastqc_analysis/.
 
 #check quality of reads
 module load MultiQC/1.5-foss-2016b-Python-2.7.14
 multiqc fastqc_analysis
 
+#align trimmed reads
 module load HISAT2/2.1.0-foss-2016b
 
-#align trimmed reads
 hisat2 -q --no-mixed --no-discordant -x GRCz11_index -1 n1_r1.fq.gz -2 n1_r2.fq.gz -S n1_alignment.sam
 hisat2 -q --no-mixed --no-discordant -x GRCz11_index -1 n2_r1.fq.gz -2 n2_r2.fq.gz -S n2_alignment.sam
 hisat2 -q --no-mixed --no-discordant -x GRCz11_index -1 n3_r1.fq.gz -2 n3_r2.fq.gz -S n3_alignment.sam
