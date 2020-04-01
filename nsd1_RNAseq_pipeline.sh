@@ -1,9 +1,9 @@
 #PBS -S /bin/bash
 #PBS -q batch
 #PBS -N nsd1_rnaseq
-#PBS -l nodes=1:ppn=12:AMD
+#PBS -l nodes=2:ppn=12:AMD
 #PBS -l walltime=72:00:00
-#PBS -l mem=10gb
+#PBS -l mem=20gb
 #PBS -M audrey.calvird@uga.edu
 #PBS -m abe
 
