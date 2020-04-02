@@ -41,4 +41,4 @@ hisat2 -q --no-mixed --no-discordant -x GRCz11_index -1 Wt5ddf-3_IGO_07846_21_S3
 #count aligned reads
 module load HTSeq/0.9.1-foss-2016b-Python-2.7.14
 
-htseq-count -r name -s yes -a 10 -t exon -i gene_id -m intersection-nonempty --nonunique=all --secondary-alignments=ingnore -o nsd1_RNAseq.sam n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam Danio_rerio.GRCz11.98.gtf
+htseq-count -r name -s yes -a 10 -t exon -i gene_id -m intersection-nonempty --nonunique=all --secondary-alignments=ignore -o nsd1_RNAseq.sam n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam Danio_rerio.GRCz11.98.gtf
