@@ -40,6 +40,10 @@ cd /scratch/aec16885/nsd1/traditional_alignment
 #hisat2 -q --no-mixed --no-discordant -x GRCz11_index -1 Wt5ddf-3_IGO_07846_21_S30_R1_001_val_1.fq.gz -2 Wt5ddf-3_IGO_07846_21_S30_R2_001_val_2.fq.gz -S wt3_alignment.sam
 
 #count aligned reads
-module load HTSeq/0.9.1-foss-2016b-Python-2.7.14
+#module load HTSeq/0.9.1-foss-2016b-Python-2.7.14
 
-htseq-count -r name -s yes -a 10 -t exon -i gene_id -m intersection-nonempty --nonunique=all --secondary-alignments=ignore n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam danRer11.repeatmsk.gtf.gz > nsd1_repeats_countsfile.txt
+#htseq-count -r name -s yes -a 10 -t exon -i gene_id -m intersection-nonempty --nonunique=all --secondary-alignments=ignore n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam danRer11.repeatmsk.gtf.gz > nsd1_repeats_countsfile.txt
+
+module load Subread/1.6.2
+
+featureCounts -p -B -M -a danRer11.repeatmsk.gtf.gz -o nsd1repeats_alignments.txt n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam
