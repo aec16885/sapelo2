@@ -46,4 +46,4 @@ cd /scratch/aec16885/nsd1/traditional_alignment
 
 module load Subread/1.6.2
 
-featureCounts -p -B -M -a danRer11.repeatmsk.gtf.gz -o nsd1repeats_alignments.txt n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam
+featureCounts -p -B -M -O --fraction -g transcript_id -a danRer11.repeatmsk.gtf.gz -o repeat_alignment.txt n1_alignment.sam n2_alignment.sam n3_alignment.sam wt1_alignment.sam wt2_alignment.sam wt3_alignment.sam
