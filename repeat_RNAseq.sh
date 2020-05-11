@@ -139,50 +139,50 @@ cd /scratch/aec16885/sat1
 
 
 #align trimmed reads
-module load HISAT2/2.1.0-foss-2016b
+#module load HISAT2/2.1.0-foss-2016b
 #hisat2-build danRer11.fa GRCz11_index
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442626_1_val_1.fq.gz -2 ERR1442626_2_val_2.fq.gz -S 2cell_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442627_1_val_1.fq.gz -2 ERR1442627_2_val_2.fq.gz -S 2cell_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442628_1_val_1.fq.gz -2 ERR1442628_2_val_2.fq.gz -S 2cell_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442629_1_val_1.fq.gz -2 ERR1442629_2_val_2.fq.gz -S 2cell_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442630_1_val_1.fq.gz -2 ERR1442630_2_val_2.fq.gz -S 2cell_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442626_1_val_1.fq.gz -2 ERR1442626_2_val_2.fq.gz -S 2cell_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442627_1_val_1.fq.gz -2 ERR1442627_2_val_2.fq.gz -S 2cell_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442628_1_val_1.fq.gz -2 ERR1442628_2_val_2.fq.gz -S 2cell_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442629_1_val_1.fq.gz -2 ERR1442629_2_val_2.fq.gz -S 2cell_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442630_1_val_1.fq.gz -2 ERR1442630_2_val_2.fq.gz -S 2cell_5.sam
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442631_1_val_1.fq.gz -2 ERR1442631_2_val_2.fq.gz -S 128cell_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442632_1_val_1.fq.gz -2 ERR1442632_2_val_2.fq.gz -S 128cell_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442633_1_val_1.fq.gz -2 ERR1442633_2_val_2.fq.gz -S 128cell_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442634_1_val_1.fq.gz -2 ERR1442634_2_val_2.fq.gz -S 128cell_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442635_1_val_1.fq.gz -2 ERR1442635_2_val_2.fq.gz -S 128cell_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442631_1_val_1.fq.gz -2 ERR1442631_2_val_2.fq.gz -S 128cell_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442632_1_val_1.fq.gz -2 ERR1442632_2_val_2.fq.gz -S 128cell_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442633_1_val_1.fq.gz -2 ERR1442633_2_val_2.fq.gz -S 128cell_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442634_1_val_1.fq.gz -2 ERR1442634_2_val_2.fq.gz -S 128cell_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442635_1_val_1.fq.gz -2 ERR1442635_2_val_2.fq.gz -S 128cell_5.sam
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442621_1_val_1.fq.gz -2 ERR1442621_2_val_2.fq.gz -S dome_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442622_1_val_1.fq.gz -2 ERR1442622_2_val_2.fq.gz -S dome_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442623_1_val_1.fq.gz -2 ERR1442623_2_val_2.fq.gz -S dome_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442624_1_val_1.fq.gz -2 ERR1442624_2_val_2.fq.gz -S dome_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442625_1_val_1.fq.gz -2 ERR1442625_2_val_2.fq.gz -S dome_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442621_1_val_1.fq.gz -2 ERR1442621_2_val_2.fq.gz -S dome_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442622_1_val_1.fq.gz -2 ERR1442622_2_val_2.fq.gz -S dome_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442623_1_val_1.fq.gz -2 ERR1442623_2_val_2.fq.gz -S dome_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442624_1_val_1.fq.gz -2 ERR1442624_2_val_2.fq.gz -S dome_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442625_1_val_1.fq.gz -2 ERR1442625_2_val_2.fq.gz -S dome_5.sam
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442601_1_val_1.fq.gz -2 ERR1442601_2_val_2.fq.gz -S shield_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442602_1_val_1.fq.gz -2 ERR1442602_2_val_2.fq.gz -S shield_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442603_1_val_1.fq.gz -2 ERR1442603_2_val_2.fq.gz -S shield_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442604_1_val_1.fq.gz -2 ERR1442604_2_val_2.fq.gz -S shield_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442605_1_val_1.fq.gz -2 ERR1442605_2_val_2.fq.gz -S shield_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442601_1_val_1.fq.gz -2 ERR1442601_2_val_2.fq.gz -S shield_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442602_1_val_1.fq.gz -2 ERR1442602_2_val_2.fq.gz -S shield_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442603_1_val_1.fq.gz -2 ERR1442603_2_val_2.fq.gz -S shield_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442604_1_val_1.fq.gz -2 ERR1442604_2_val_2.fq.gz -S shield_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442605_1_val_1.fq.gz -2 ERR1442605_2_val_2.fq.gz -S shield_5.sam
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442566_1_val_1.fq.gz -2 ERR1442566_2_val_2.fq.gz -S prim5_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442567_1_val_1.fq.gz -2 ERR1442567_2_val_2.fq.gz -S prim5_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442568_1_val_1.fq.gz -2 ERR1442568_2_val_2.fq.gz -S prim5_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442569_1_val_1.fq.gz -2 ERR1442569_2_val_2.fq.gz -S prim5_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442570_1_val_1.fq.gz -2 ERR1442570_2_val_2.fq.gz -S prim5_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442566_1_val_1.fq.gz -2 ERR1442566_2_val_2.fq.gz -S prim5_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442567_1_val_1.fq.gz -2 ERR1442567_2_val_2.fq.gz -S prim5_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442568_1_val_1.fq.gz -2 ERR1442568_2_val_2.fq.gz -S prim5_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442569_1_val_1.fq.gz -2 ERR1442569_2_val_2.fq.gz -S prim5_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442570_1_val_1.fq.gz -2 ERR1442570_2_val_2.fq.gz -S prim5_5.sam
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442586_1_val_1.fq.gz -2 ERR1442586_2_val_2.fq.gz -S protrudingmouth_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442587_1_val_1.fq.gz -2 ERR1442587_2_val_2.fq.gz -S protrudingmouth_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442588_1_val_1.fq.gz -2 ERR1442588_2_val_2.fq.gz -S protrudingmouth_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442589_1_val_1.fq.gz -2 ERR1442589_2_val_2.fq.gz -S protrudingmouth_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442590_1_val_1.fq.gz -2 ERR1442590_2_val_2.fq.gz -S protrudingmouth_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442586_1_val_1.fq.gz -2 ERR1442586_2_val_2.fq.gz -S protrudingmouth_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442587_1_val_1.fq.gz -2 ERR1442587_2_val_2.fq.gz -S protrudingmouth_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442588_1_val_1.fq.gz -2 ERR1442588_2_val_2.fq.gz -S protrudingmouth_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442589_1_val_1.fq.gz -2 ERR1442589_2_val_2.fq.gz -S protrudingmouth_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442590_1_val_1.fq.gz -2 ERR1442590_2_val_2.fq.gz -S protrudingmouth_5.sam
 
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442596_1_val_1.fq.gz -2 ERR1442596_2_val_2.fq.gz -S 5dpf_1.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442597_1_val_1.fq.gz -2 ERR1442597_2_val_2.fq.gz -S 5dpf_2.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442598_1_val_1.fq.gz -2 ERR1442598_2_val_2.fq.gz -S 5dpf_3.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442599_1_val_1.fq.gz -2 ERR1442599_2_val_2.fq.gz -S 5dpf_4.sam
-hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442600_1_val_1.fq.gz -2 ERR1442600_2_val_2.fq.gz -S 5dpf_5.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442596_1_val_1.fq.gz -2 ERR1442596_2_val_2.fq.gz -S 5dpf_1.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442597_1_val_1.fq.gz -2 ERR1442597_2_val_2.fq.gz -S 5dpf_2.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442598_1_val_1.fq.gz -2 ERR1442598_2_val_2.fq.gz -S 5dpf_3.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442599_1_val_1.fq.gz -2 ERR1442599_2_val_2.fq.gz -S 5dpf_4.sam
+#hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ERR1442600_1_val_1.fq.gz -2 ERR1442600_2_val_2.fq.gz -S 5dpf_5.sam
 
 #count aligned reads
 #module load HTSeq/0.9.1-foss-2016b-Python-2.7.14
@@ -191,4 +191,4 @@ hisat2 -q --no-mixed --rna-strandness FR --secondary -k 10 -x GRCz11_index -1 ER
 
 module load Subread/1.6.2
 
-featureCounts -p -B -M -O --fraction -g gene_id -a danRer11.repeatmsk.gtf.gz -o repeat_MZT.txt 2cell_1.sam 2cell_2.sam 2cell_3.sam 2cell_4.sam 2cell_5.sam 128cell_1.sam 128cell_2.sam 128cell_3.sam 128cell_4.sam 128cell_5.sam dome_1.sam dome_2.sam dome_3.sam dome_4.sam dome_5.sam shield_1.sam shield_2.sam shield_3.sam shield_4.sam shield_5.sam prim5_1.sam prim5_2.sam prim5_3.sam prim5_4.sam prim5_5.sam protrudingmouth_1.sam protrudingmouth_2.sam protrudingmouth_3.sam protrudingmouth_4.sam protrudingmouth_5.sam 5dpf_1.sam 5dpf_2.sam 5dpf_3.sam 5dpf_4.sam 5dpf_5.sam
+featureCounts -p -B -M -O -g gene_id -a danRer11.repeatmsk.gtf.gz -o repeat_MZT.txt 2cell_1.sam 2cell_2.sam 2cell_3.sam 2cell_4.sam 2cell_5.sam 128cell_1.sam 128cell_2.sam 128cell_3.sam 128cell_4.sam 128cell_5.sam dome_1.sam dome_2.sam dome_3.sam dome_4.sam dome_5.sam shield_1.sam shield_2.sam shield_3.sam shield_4.sam shield_5.sam prim5_1.sam prim5_2.sam prim5_3.sam prim5_4.sam prim5_5.sam protrudingmouth_1.sam protrudingmouth_2.sam protrudingmouth_3.sam protrudingmouth_4.sam protrudingmouth_5.sam 5dpf_1.sam 5dpf_2.sam 5dpf_3.sam 5dpf_4.sam 5dpf_5.sam
