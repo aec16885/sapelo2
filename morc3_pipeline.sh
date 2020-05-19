@@ -1,6 +1,6 @@
 #PBS -S /bin/bash
 #PBS -q batch
-#PBS -N morc3_pipeline
+#PBS -N morc3ab_rnaseq
 #PBS -l nodes=1:ppn=48
 #PBS -l walltime=72:00:00
 #PBS -l mem=10gb
@@ -8,70 +8,33 @@
 #PBS -m abe
 
 cd $PBS_O_WORKDIR
-cd /scratch/aec16885/morc3
+cd /scratch/aec16885/morc3/RNA_seq/
 
-module load HISAT2/2.1.0-foss-2016b
-#build a histat2 index
-#hisat2-build rawfiles/GCF_000002035.6_GRCz11_genomic.fna GRCz11_index
+#trim reads
+module load Trim_Galore/0.6.5-GCCcore-8.2.0-Java-11
 
-#align trimmed reads
-hisat2 -q -x GRCz11_index -U trimmedfiles/s1_t.fq -S s1_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s2_t.fq -S s2_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s3_t.fq -S s3_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s4_t.fq -S s4_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s5_t.fq -S s5_alignment.sam
-hisat2 -q -x GRCz11_index -U trimmedfiles/s6_t.fq -S s6_alignment.sam
+trim_galore -q 20 --paired rawfiles/morc3ab-6hpf-1_R1_001.fastq.gz rawfiles/morc3ab-6hpf-1_R2_001.fastq.gz
+trim_galore -q 20 --paired rawfiles/morc3ab-6hpf-2_R1_001.fastq.gz rawfiles/morc3ab-6hpf-2_R2_001.fastq.gz
+trim_galore -q 20 --paired rawfiles/morc3ab-6hpf-3_R1_001.fastq.gz rawfiles/morc3ab-6hpf-3_R2_001.fastq.gz
+
+#trim_galore -q 20 --paired rawfiles/morc3b-6hpf-1_R1_001.fastq.gz rawfiles/morc3b-6hpf-1_R2_001.fastq.gz
+#trim_galore -q 20 --paired rawfiles/morc3b-6hpf-2_R1_001.fastq.gz rawfiles/morc3b-6hpf-2_R2_001.fastq.gz
+#trim_galore -q 20 --paired rawfiles/morc3b-6hpf-3_R1_001.fastq.gz rawfiles/morc3b-6hpf-3_R2_001.fastq.gz
+
+trim_galore -q 20 --paired rawfiles/wt-6hpf-1_R1_001.fastq.gz rawfiles/wt-6hpf-1_R2_001.fastq.gz
+trim_galore -q 20 --paired rawfiles/wt-6hpf-2_R1_001.fastq.gz rawfiles/wt-6hpf-2_R2_001.fastq.gz
+trim_galore -q 20 --paired rawfiles/wt-6hpf-3_R1_001.fastq.gz rawfiles/wt-6hpf-3_R2_001.fastq.gz
+
+ml STAR/2.7.1a-foss-2016b
+STAR --runThreadN 4 --runMode genomeGenerate --genomeDir danRer11_index --genomeFastaFiles ../../nsd1/traditional_alignment/danRer11.fa --sjdbGTFfile ../../nsd1/Danio_rerio.GRCz11.98.gtf --sjdbOverhang 100
+
+STAR --runThreadN 4 --genomeDir danRer11_index --readFilesIn morc3ab-6hpf-1_R1_001_val_1.fq.gz morc3ab-6hpf-1_R2_001_val_2.fq.gz --outFileNamePrefix morc3ab_6hpf_1_alignment --outSAMtype BAM SortedByCoordinate
+STAR --runThreadN 4 --genomeDir danRer11_index --readFilesIn morc3ab-6hpf-2_R1_001_val_1.fq.gz morc3ab-6hpf-2_R2_001_val_2.fq.gz --outFileNamePrefix morc3ab_6hpf_2_alignment --outSAMtype BAM SortedByCoordinate
+STAR --runThreadN 4 --genomeDir danRer11_index --readFilesIn morc3ab-6hpf-3_R1_001_val_1.fq.gz morc3ab-6hpf-3_R2_001_val_2.fq.gz --outFileNamePrefix morc3ab_6hpf_3_alignment --outSAMtype BAM SortedByCoordinate
+
+STAR --runThreadN 4 --genomeDir danRer11_index --readFilesIn wt-6hpf-1_R1_001_val_1.fq.gz wt-6hpf-1_R2_001_val_2.fq.gz --outFileNamePrefix wt_6hpf_1_alignment --outSAMtype BAM SortedByCoordinate
+STAR --runThreadN 4 --genomeDir danRer11_index --readFilesIn wt-6hpf-2_R1_001_val_1.fq.gz wt-6hpf-2_R2_001_val_2.fq.gz --outFileNamePrefix wt_6hpf_2_alignment --outSAMtype BAM SortedByCoordinate
+STAR --runThreadN 4 --genomeDir danRer11_index --readFilesIn wt-6hpf-3_R1_001_val_1.fq.gz wt-6hpf-3_R2_001_val_2.fq.gz --outFileNamePrefix wt_6hpf_3_alignment --outSAMtype BAM SortedByCoordinate
 
 module load Subread/1.6.2
-featureCounts( s1_alignment.sam s2_alignment.sam s3_alignment.sam s4_alignment.sam s5_alignment.sam s6_alignment.sam,
-
-#annotation
-annot.ext=GCA_000002035.4_GRCz11_genomic.gtf,
-isGTFAnnotationFile=TRUE,
-GTF.featureType="exon",
-GTF.attrType="gene_ID",
-chrAliases=NULL,
-
-#level of summerization
-useMetaFeatures=TRUE,
-
-#overlap between reads and features
-allowMultiOverlap=FALSE,
-minOverlap=1,
-largestOverlap=TRUE,
-readextension5=0,
-readextension3=0,
-read2pos=NULL,
-
-#multi-mapping reads
-countMultiMappingReads=FALSE,
-fraction=FALSE,
-
-#read filtering
-minMQS=0,
-splitOnly=FALSE,
-nonSplitOnly=FALSE,
-primaryOnly=FALSE,
-ignoreDup=FALSE,
-
-#strandedness
-strandSpecific=0,
-
-#exon-exon junctions
-juncCounts=TRUE
-genome=danRer11.fa
-
-#specific for paired end reads (morc3 data is not paired end, for furutre use)
-isPairedEnd=FALSE,
-#requireBothEndsMapped=FALSE,
-#checkFragLength=FALSE,
-#minFragLength=50,
-#maxFragLength=600,
-#countChimericFragments=TRUE,
-#autosort=TRUE,
-
-# miscellaneous
-nthreads=1,
-maxMOp=10,
-reportReads=TRUE)
-> morc3_output_${PBS_JOBID}.log
+featureCounts -p -B -O -g gene_id -a ../../nsd1/Danio_rerio.GRCz11.98.gtf -o morc3ab_6hpf_counts.txt morc3ab_6hpf_1_alignment.bam morc3ab_6hpf_2_alignment.bam morc3ab_6hpf_3_alignment.bam wt_6hpf_1_alignment.bam wt_6hpf_2_alignment.bam wt_6hpf_3_alignment.bam
