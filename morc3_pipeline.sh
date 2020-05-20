@@ -17,9 +17,9 @@ module load Trim_Galore/0.6.5-GCCcore-8.2.0-Java-11
 #trim_galore -q 20 --paired rawfiles/morc3ab-6hpf-2_R1_001.fastq.gz rawfiles/morc3ab-6hpf-2_R2_001.fastq.gz
 #trim_galore -q 20 --paired rawfiles/morc3ab-6hpf-3_R1_001.fastq.gz rawfiles/morc3ab-6hpf-3_R2_001.fastq.gz
 
-trim_galore -q 20 --paired rawfiles/morc3b-6hpf-1_R1_001.fastq.gz rawfiles/morc3b-6hpf-1_R2_001.fastq.gz
-trim_galore -q 20 --paired rawfiles/morc3b-6hpf-2_R1_001.fastq.gz rawfiles/morc3b-6hpf-2_R2_001.fastq.gz
-trim_galore -q 20 --paired rawfiles/morc3b-6hpf-3_R1_001.fastq.gz rawfiles/morc3b-6hpf-3_R2_001.fastq.gz
+#trim_galore -q 20 --paired rawfiles/morc3b-6hpf-1_R1_001.fastq.gz rawfiles/morc3b-6hpf-1_R2_001.fastq.gz
+#trim_galore -q 20 --paired rawfiles/morc3b-6hpf-2_R1_001.fastq.gz rawfiles/morc3b-6hpf-2_R2_001.fastq.gz
+#trim_galore -q 20 --paired rawfiles/morc3b-6hpf-3_R1_001.fastq.gz rawfiles/morc3b-6hpf-3_R2_001.fastq.gz
 
 #trim_galore -q 20 --paired rawfiles/wt-6hpf-1_R1_001.fastq.gz rawfiles/wt-6hpf-1_R2_001.fastq.gz
 #trim_galore -q 20 --paired rawfiles/wt-6hpf-2_R1_001.fastq.gz rawfiles/wt-6hpf-2_R2_001.fastq.gz
