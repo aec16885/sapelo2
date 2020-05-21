@@ -25,8 +25,8 @@ cd /scratch/aec16885/morc3/RNA_seq/
 #trim_galore -q 20 --paired rawfiles/wt-6hpf-2_R1_001.fastq.gz rawfiles/wt-6hpf-2_R2_001.fastq.gz
 #trim_galore -q 20 --paired rawfiles/wt-6hpf-3_R1_001.fastq.gz rawfiles/wt-6hpf-3_R2_001.fastq.gz
 
-wget "https://hgdownload.soe.ucsc.edu/goldenPath/danRer11/bigZips/danRer11.fa.gz"
-wget "https://hgdownload.soe.ucsc.edu/goldenPath/danRer11/bigZips/genes/danRer11.ncbiRefSeq.gtf.gz"
+#wget "https://hgdownload.soe.ucsc.edu/goldenPath/danRer11/bigZips/danRer11.fa.gz"
+#wget "https://hgdownload.soe.ucsc.edu/goldenPath/danRer11/bigZips/genes/danRer11.ncbiRefSeq.gtf.gz"
 gunzip danRer11.fa.gz
 gunzip danRer11.ncbiRefSeq.gtf.gz
 
