@@ -26,14 +26,14 @@ samtools index wt_6hpf_3_Aligned.sortedByCoord.out.bam
 
 module load deepTools/3.3.1-intel-2019b-Python-3.7.4
 
-bamCoverage -b morc3ab_6hpf_1_Aligned.sortedByCoord.out.bam -o morc3ab_6hpf_1.bw
-bamCoverage -b morc3ab_6hpf_2_Aligned.sortedByCoord.out.bam -o morc3ab_6hpf_2.bw
-bamCoverage -b morc3ab_6hpf_3_Aligned.sortedByCoord.out.bam -o morc3ab_6hpf_3.bw
+bamCoverage -bs 10 -p max -b morc3ab_6hpf_1_Aligned.sortedByCoord.out.bam -o morc3ab_6hpf_1.bw
+bamCoverage -bs 10 -p max -b morc3ab_6hpf_2_Aligned.sortedByCoord.out.bam -o morc3ab_6hpf_2.bw
+bamCoverage -bs 10 -p max -b morc3ab_6hpf_3_Aligned.sortedByCoord.out.bam -o morc3ab_6hpf_3.bw
 
-bamCoverage -b morc3b_6hpf_1_Aligned.sortedByCoord.out.bam -o morc3b_6hpf_1.bw
-bamCoverage -b morc3b_6hpf_2_Aligned.sortedByCoord.out.bam -o morc3b_6hpf_2.bw
-bamCoverage -b morc3b_6hpf_3_Aligned.sortedByCoord.out.bam -o morc3b_6hpf_3.bw
+bamCoverage -bs 10 -p max -b morc3b_6hpf_1_Aligned.sortedByCoord.out.bam -o morc3b_6hpf_1.bw
+bamCoverage -bs 10 -p max -b morc3b_6hpf_2_Aligned.sortedByCoord.out.bam -o morc3b_6hpf_2.bw
+bamCoverage -bs 10 -p max -b morc3b_6hpf_3_Aligned.sortedByCoord.out.bam -o morc3b_6hpf_3.bw
 
-bamCoverage -b wt_6hpf_1_Aligned.sortedByCoord.out.bam -o wt_6hpf_1.bw
-bamCoverage -b wt_6hpf_2_Aligned.sortedByCoord.out.bam -o wt_6hpf_2.bw
-bamCoverage -b wt_6hpf_3_Aligned.sortedByCoord.out.bam -o wt_6hpf_3.bw
+bamCoverage -bs 10 -p max -b wt_6hpf_1_Aligned.sortedByCoord.out.bam -o wt_6hpf_1.bw
+bamCoverage -bs 10 -p max -b wt_6hpf_2_Aligned.sortedByCoord.out.bam -o wt_6hpf_2.bw
+bamCoverage -bs 10 -p max -b wt_6hpf_3_Aligned.sortedByCoord.out.bam -o wt_6hpf_3.bw
