@@ -32,8 +32,9 @@ cd /scratch/aec16885/morc3/RNA_seq/
 
 module load STAR/2.7.1a-foss-2016b
 
+gunzip danRer11.repeatmsk.gtf.gz
+
 STAR --runThreadN 48 --runMode genomeGenerate --genomeDir /scratch/aec16885/morc3/RNA_seq/TE_index --genomeFastaFiles /scratch/aec16885/morc3/RNA_seq/danRer11.fa --sjdbGTFfile /scratch/aec16885/morc3/RNA_seq/danRer11.repeatmsk.gtf.gz --sjdbOverhang 100
-#gunzip *.fq.gz
 
 STAR --runThreadN 48 --genomeDir /scratch/aec16885/morc3/RNA_seq/TE_index --readFilesIn /scratch/aec16885/morc3/RNA_seq/morc3ab-6hpf-1_R1_001_val_1.fq /scratch/aec16885/morc3/RNA_seq/morc3ab-6hpf-1_R2_001_val_2.fq --outFileNamePrefix morc3ab_6hpf_TE_1_ --outSAMtype BAM SortedByCoordinate
 STAR --runThreadN 48 --genomeDir /scratch/aec16885/morc3/RNA_seq/TE_index --readFilesIn /scratch/aec16885/morc3/RNA_seq/morc3ab-6hpf-2_R1_001_val_1.fq /scratch/aec16885/morc3/RNA_seq/morc3ab-6hpf-2_R2_001_val_2.fq --outFileNamePrefix morc3ab_6hpf_TE_2_ --outSAMtype BAM SortedByCoordinate
