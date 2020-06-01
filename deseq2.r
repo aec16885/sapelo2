@@ -1,35 +1,63 @@
-suppressMessages({
- library("sleuth")
-})
-
 #set input and output dirs
-datapath <- "/scratch/aec16885/nsd1_RNAseq/bowtie/kallisto"
-resultdir <- "/scratch/aec16885/nsd1_RNAseq/bowtie/sleuth"
+datapath <- "/scratch/aec16885/nsd1/traditional_alignment"
+resultdir <- "/scratch/aec16885/nsd1/traditional_alignment"
 setwd(resultdir)
 
-#create a sample to condition metadata description
-sample_id <- dir(file.path(datapath))
-kallisto_dirs <- file.path(datapath, sample_id)
-print(kallisto_dirs)
-sample <- c("ab_1", "ab_2", "ab_3","nsd1mzko_1", "nsd1mzko_2", "nsd1mzko_3")
-condition <- c("WT", "WT", "WT", "nsd1mzko", "nsd1mzko", "nsd1mzko")
-samples_to_conditions <- data.frame(sample,condition)
-samples_to_conditions <- dplyr::mutate(samples_to_conditions, path = kallisto_dirs)
-print(samples_to_conditions)
+countdata<- read.delim("repeat_alignment_gene.txt", header=TRUE, row.names=1, comment.char="#")
+countdata<-countdata[ ,6:ncol(countdata)]
+colnames(countdata)<- gsub("\\.[sb]am$","",colnames(countdata))
+countdata<-as.matrix(countdata)
+(condition<-factor(c(rep("nsd1MZKO",3),rep("WT",3))))
 
+library(DESeq2)
+(coldata<-data.frame(row.names=colnames(countdata),condition))
+dds <- DESeqDataSetFromMatrix(countData=countdata,colData=coldata,design=~condition)
+dds
+dds<-DESeq(dds)
+png("qc-dispersions_0511.png",1000,1000,pointsize = 20)
+plotDispEsts(dds, main="Dispersion Plot")
+dev.off()
+rld <- rlogTransformation(dds)
+hist(assay(rld))
 
-#run sleuth on the data
-sleuth_object <- sleuth_prep(samples_to_conditions, extra_bootstrap_summary = TRUE) # read data into sleuth_object
-sleuth_object <- sleuth_fit(sleuth_object, ~condition, 'full') # estimate parameters for the full linear model that includes the conditions as factors
-sleuth_object <- sleuth_fit(sleuth_object, ~1, 'reduced') # estimate parameters for the reduced linear model that assumes equal transcript abundances in both conditions
-sleuth_object <- sleuth_lrt(sleuth_object, 'reduced', 'full') # perform likelihood ratio test to identify transcripts whose fit is significantly better under full model relative to reduced model
-models(sleuth_object)
+library(RColorBrewer)
+(mycols <- brewer.pal(8, "Set1")[1:length(unique(condition))])
+sampleDists <- as.matrix(dist(t(assay(rld))))
 
-sleuth_table <- sleuth_results(sleuth_object, 'reduced:full', 'lrt', show_all = FALSE)
-sleuth_significant <- dplyr::filter(sleuth_table, qval <= 0.05)
+library(gplots)
+png("qc-heatmap-samples_0511.png", w=1000, h=1000, pointsize=20)
+heatmap.2(as.matrix(sampleDists), key=F, trace="none",col=colorpanel(100, "black", "white"),ColSideColors=mycols[condition], RowSideColors=mycols[condition],margin=c(10, 10), main="Sample Distance Matrix")
+dev.off()
 
-#make volcano plot
-plot_volcano(sleuth_object, "1", test_type="wt", which_model = "full", sig_level = 0.05, point_alpha = 0.2, sig_color = "red", highlight= NULL)
+png("qc-pca_0511.png", 1000, 1000, pointsize=20)
+DESeq2::plotPCA(rld, intgroup="condition")
+dev.off()
 
-#make heat map
-plot_sample_heatmap(sleuth_object, use_filtered= TRUE, color_high='red', color_low='blue', x_axis_angle = 90,
+res <- results(dds)
+table(res$padj<0.05)
+res <- res[order(res$padj), ]
+esdata <- merge(as.data.frame(res), as.data.frame(counts(dds, normalized=TRUE)), by="row.names", sort=FALSE)
+names(resdata)[1] <- "Gene"
+write.csv(resdata, file="diffexpr-results.csv")
+
+png("hist_adjustpvalue_0511.png",w=1000,h=1000,pointsize=20)
+hist(res$pvalue, breaks=200, col="grey")
+dev.off()
+
+png("MA_plot_0511.png",w=1000,h=1000,pointsize=15)
+DESeq2::plotMA(dds, ylim=c(-1,1))
+
+volcanoplot <- function (res, lfcthresh=2, sigthresh=0.05, main="Volcano Plot", legendpos="bottomright", labelsig=TRUE, textcx=1, ...) {
+  with(res, plot(log2FoldChange, -log10(pvalue), pch=20, main=main, ...))
+  with(subset(res, padj<sigthresh ), points(log2FoldChange, -log10(pvalue), pch=20, col="black", ...))
+  with(subset(res, abs(log2FoldChange)>lfcthresh), points(log2FoldChange, -log10(pvalue), pch=20, col="grey", ...))
+  with(subset(res, padj<sigthresh & abs(log2FoldChange)>lfcthresh), points(log2FoldChange, -log10(pvalue), pch=20, col="red", ...))
+  if (labelsig) {
+    require(calibrate)
+    with(subset(res, padj<sigthresh & abs(log2FoldChange)>lfcthresh), textxy(log2FoldChange, -log10(pvalue), labs=Gene, cex=textcx, ...))
+  }
+  legend(legendpos, xjust=1, yjust=1, legend=c(paste("FDR<",sigthresh,sep=""), paste("|LogFC|>",lfcthresh,sep=""), "both"), pch=20, col=c("black","grey","red"))
+}
+png("diffexpr-volcanoplot_0511.png", 1200, 1000, pointsize=10)
+volcanoplot(resdata, lfcthresh=1, sigthresh=0.05, textcx=.8, xlim=c(-15, 15))
+dev.off()
