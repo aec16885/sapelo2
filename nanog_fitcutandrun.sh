@@ -3,7 +3,7 @@
 #SBATCH --partition=batch                         # Partition (queue) name
 #SBATCH --ntasks=1                                # Run on a single CPU core
 #SBATCH --mem=10gb                                # Job memory request
-#SBATCH --time=02:00:00                           # Time limit hrs:min:sec
+#SBATCH --time=24:00:00                           # Time limit hrs:min:sec
 #SBATCH --output=nanog_cutandrun_trial1.%j.out    # Standard output log
 #SBATCH --error=nanog_cutandrun_trial1.%j.err     # Standard error log
 
