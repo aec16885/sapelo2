@@ -24,6 +24,6 @@ module load Bowtie2/2.4.5-GCC-10.2.0
 
 #bowtie2-build -f /work/mglab/anh/reference_genome/main_sat1_sequence_1992.fasta sat1_index
 
-bowtie2 -x sat1_index -1 CRR278533_f1* -2 CRR278533_r2* -U sample1_unpaired  -b sample1 -S sample1_aligned
-bowtie2 -x sat1_index -1 CRR278534_f1* -2 CRR278534_r2* -U sample2_unpaired  -b sample2 -S sample2_aligned
-bowtie2 -x sat1_index -1 CRR278535_f1* -2 CRR278535_r2* -U sample3_unpaired  -b sample3 -S sample3_aligned
+bowtie2 -x sat1_index -1 CRR278533_f1_val_1.fq.gz -2 CRR278533_r2_val_2.fq.gz -U sample1_unpaired  -b sample1 -S sample1_aligned
+bowtie2 -x sat1_index -1 CRR278534_f1_val_1.fq.gz -2 CRR278534_r2_val_2.fq.gz -U sample2_unpaired  -b sample2 -S sample2_aligned
+bowtie2 -x sat1_index -1 CRR278535_f1_val_1.fq.gz -2 CRR278535_r2_val_2.fq.gz -U sample3_unpaired  -b sample3 -S sample3_aligned
