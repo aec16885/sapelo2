@@ -29,9 +29,9 @@ cd /scratch/aec16885/nanog/fitCUTandRUN
 
 module load Bowtie2/2.4.5-GCC-10.2.0
 module load SAMtools/1.14-GCC-8.3.0
-
+mkdir output
 #bowtie2-build -f /work/mglab/anh/reference_genome/main_sat1_sequence_1992.fasta sat1_index
 
-bowtie2 -q --no-unal --phred33 --local -x sat1_index -1 CRR278533_f1_val_1.fq -2 CRR278533_r2_val_2.fq | samtools view -b ->
-bowtie2 -q --no-unal --phred33 --local -x sat1_index -1 CRR278534_f1_val_1.fq -2 CRR278534_r2_val_2.fq | samtools view -b ->
-bowtie2 -q --no-unal --phred33 --local -x sat1_index -1 CRR278535_f1_val_1.fq -2 CRR278535_r2_val_2.fq | samtools view -b ->
+bowtie2 -q --no-unal --phred33 --local -x sat1_index -1 CRR278533_f1_val_1.fq -2 CRR278533_r2_val_2.fq | samtools view -b -> output/sample1.bam
+bowtie2 -q --no-unal --phred33 --local -x sat1_index -1 CRR278534_f1_val_1.fq -2 CRR278534_r2_val_2.fq | samtools view -b -> output/sample2.bam
+bowtie2 -q --no-unal --phred33 --local -x sat1_index -1 CRR278535_f1_val_1.fq -2 CRR278535_r2_val_2.fq | samtools view -b -> output/sample3.bam 
