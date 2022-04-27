@@ -20,10 +20,17 @@ cd /scratch/aec16885/nanog/fitCUTandRUN
 #trim_galore -q 20 --paired replicate2/CRR278534_f1.fastq.gz  replicate2/CRR278534_r2.fastq.gz
 #trim_galore -q 20 --paired replicate3/CRR278535_f1.fastq.gz  replicate3/CRR278535_r2.fastq.gz
 
+gunzip CRR278533_f1_val_1.fq.gz
+gunzip CRR278533_r2_val_2.fq.gz
+gunzip CRR278534_f1_val_1.fq.gz
+gunzip CRR278534_r2_val_2.fq.gz
+gunzip CRR278535_f1_val_1.fq.gz
+gunzip CRR278535_r2_val_2.fq.gz
+
 module load Bowtie2/2.4.5-GCC-10.2.0
 
 #bowtie2-build -f /work/mglab/anh/reference_genome/main_sat1_sequence_1992.fasta sat1_index
 
-bowtie2 -x sat1_index -1 CRR278533_f1_val_1.fq.gz -2 CRR278533_r2_val_2.fq.gz -U sample1_unpaired -S sample1_aligned
-bowtie2 -x sat1_index -1 CRR278534_f1_val_1.fq.gz -2 CRR278534_r2_val_2.fq.gz -U sample2_unpaired -S sample2_aligned
-bowtie2 -x sat1_index -1 CRR278535_f1_val_1.fq.gz -2 CRR278535_r2_val_2.fq.gz -U sample3_unpaired -S sample3_aligned
+bowtie2 -q -x sat1_index -1 CRR278533_f1_val_1.fq -2 CRR278533_r2_val_2.fq -U sample1_unpaired.fq -S sample1_aligned
+bowtie2 -q -x sat1_index -1 CRR278534_f1_val_1.fq -2 CRR278534_r2_val_2.fq -U sample2_unpaired.fq -S sample2_aligned
+bowtie2 -q -x sat1_index -1 CRR278535_f1_val_1.fq -2 CRR278535_r2_val_2.fq -U sample3_unpaired.fq -S sample3_aligned
