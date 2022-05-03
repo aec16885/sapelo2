@@ -27,7 +27,7 @@ cd /scratch/aec16885/nanog/fitCUTandRUN
 #gunzip CRR278535_f1_val_1.fq.gz
 #gunzip CRR278535_r2_val_2.fq.gz
 
-module load Bowtie2/2.4.2-GCC-10.2.0
+module load Bowtie2/2.4.1-GCC-8.3.0
 module load SAMtools/1.14-GCC-8.3.0
 #mkdir output
 #bowtie2-build -f /work/mglab/anh/reference_genome/main_sat1_sequence_1992.fasta sat1_index
